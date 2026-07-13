@@ -1,0 +1,72 @@
+{{- if eq .Values.mode "cron" }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "cloud-service-status-monitor.fullname" . }}
+  labels:
+    {{- include "cloud-service-status-monitor.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds }}
+      backoffLimit: 1
+      template:
+        metadata:
+          labels:
+            {{- include "cloud-service-status-monitor.labels" . | nindent 12 }}
+        spec:
+          serviceAccountName: {{ include "cloud-service-status-monitor.serviceAccountName" . }}
+          restartPolicy: Never
+          {{- with .Values.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.affinity }}
+          affinity:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          containers:
+            - name: monitor
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              args:
+                - --config
+                - /app/config/config.yaml
+              env:
+                - name: STATE_DIR
+                  value: {{ .Values.persistence.mountPath | quote }}
+                - name: DRY_RUN
+                  value: {{ .Values.dryRun | quote }}
+                - name: SLACK_WEBHOOK_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .Values.slack.existingSecret }}
+                      key: {{ .Values.slack.secretKey }}
+              volumeMounts:
+                - name: config
+                  mountPath: /app/config
+                  readOnly: true
+                {{- if .Values.persistence.enabled }}
+                - name: data
+                  mountPath: {{ .Values.persistence.mountPath }}
+                {{- end }}
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}
+          volumes:
+            - name: config
+              configMap:
+                name: {{ include "cloud-service-status-monitor.fullname" . }}-config
+            {{- if .Values.persistence.enabled }}
+            - name: data
+              persistentVolumeClaim:
+                claimName: {{ include "cloud-service-status-monitor.fullname" . }}-data
+            {{- end }}
+{{- end }}

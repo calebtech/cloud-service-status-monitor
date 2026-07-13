@@ -1,0 +1,27 @@
+{
+  "incidents": [
+    {
+      "impact": "3",
+      "incident_id": "arn:aws:health:me-central-1::event/MULTIPLE_SERVICES/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE_5E6B8_EF2498889B5",
+      "incident_url": "https://health.aws.amazon.com/health/status",
+      "raw_status": "3",
+      "service": "AWS",
+      "status": "Major Outage",
+      "status_page_url": "https://health.aws.amazon.com/health/status",
+      "title": "Multiple services (UAE): Increased Error Rates",
+      "updated_at": "2026-04-30T07:25:54+00:00"
+    },
+    {
+      "impact": "3",
+      "incident_id": "arn:aws:health:me-south-1::event/MULTIPLE_SERVICES/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE/AWS_MULTIPLE_SERVICES_OPERATIONAL_ISSUE_E6426_01AD72B4E1E",
+      "incident_url": "https://health.aws.amazon.com/health/status",
+      "raw_status": "3",
+      "service": "AWS",
+      "status": "Major Outage",
+      "status_page_url": "https://health.aws.amazon.com/health/status",
+      "title": "Multiple services (Bahrain): Increased Error Rates",
+      "updated_at": "2026-04-30T07:07:11+00:00"
+    }
+  ],
+  "updated_at": "2026-07-13T11:03:57+00:00"
+}

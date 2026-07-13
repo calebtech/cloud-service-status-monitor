@@ -1,0 +1,90 @@
+# mode: dashboard | cron
+# dashboard = Deployment + Service (unified UI + background polling + Slack)
+# cron = CronJob-only polling (no UI)
+mode: dashboard
+
+replicaCount: 1
+
+schedule: "*/5 * * * *"
+successfulJobsHistoryLimit: 3
+failedJobsHistoryLimit: 3
+concurrencyPolicy: Forbid
+activeDeadlineSeconds: 120
+
+image:
+  repository: cloud-service-status-monitor
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+dryRun: false
+
+dashboard:
+  host: "0.0.0.0"
+  port: 8080
+  service:
+    type: ClusterIP
+    port: 80
+  ingress:
+    enabled: false
+    className: ""
+    host: cloud-status.example.com
+    annotations: {}
+
+config:
+  poll_interval_seconds: 60
+  http_timeout_seconds: 20
+  services:
+    - name: AWS
+      provider: aws_health
+      enabled: true
+      status_page_url: https://health.aws.amazon.com/health/status
+      events_url: https://health.aws.amazon.com/public/currentevents
+    - name: GitLab
+      provider: statusio
+      enabled: true
+      status_page_url: https://status.gitlab.com
+      page_id: "5b36dc6502d06804c08349f7"
+      api_base: https://api.status.io
+    - name: GitHub
+      provider: statuspage
+      enabled: true
+      status_page_url: https://www.githubstatus.com
+      base_url: https://www.githubstatus.com
+    - name: Docker Hub
+      provider: statusio
+      enabled: true
+      status_page_url: https://status.docker.com
+      page_id: "533c6539221ae15e3f000031"
+      api_base: https://api.status.io
+
+slack:
+  existingSecret: cloud-status-monitor-slack
+  secretKey: webhook-url
+  createSecret: false
+  webhookUrl: ""
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  mountPath: /app/data
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

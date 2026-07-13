@@ -1,0 +1,34 @@
+# Docker Compose does not run Kubernetes CronJobs.
+# Polling is handled inside the app via --serve (background loop)
+# using poll_interval_seconds from config (default 60s).
+#
+# Usage:
+#   export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/..."
+#   docker compose up --build
+#   open http://localhost:8080
+#
+# Optional one-shot / seed (no dashboard):
+#   docker compose run --rm monitor --config /app/config/config.yaml --seed
+
+services:
+  monitor:
+    build: .
+    image: cloud-service-status-monitor:local
+    container_name: cloud-status-monitor
+    ports:
+      - "8080:8080"
+    environment:
+      SLACK_WEBHOOK_URL: ${SLACK_WEBHOOK_URL:-}
+      STATE_DIR: /app/data
+      DRY_RUN: ${DRY_RUN:-false}
+      POLL_INTERVAL_SECONDS: ${POLL_INTERVAL_SECONDS:-60}
+    volumes:
+      - ./config/config.yaml:/app/config/config.yaml:ro
+      - monitor-data:/app/data
+    restart: unless-stopped
+    # Default image CMD already runs: --serve on :8080
+    # Equivalent explicit command:
+    # command: ["--config", "/app/config/config.yaml", "--serve", "--host", "0.0.0.0", "--port", "8080"]
+
+volumes:
+  monitor-data:

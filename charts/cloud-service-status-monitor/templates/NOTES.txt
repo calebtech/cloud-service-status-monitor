@@ -1,0 +1,25 @@
+{{- if eq .Values.mode "dashboard" }}
+1. Create the Slack webhook secret (once):
+
+   kubectl create secret generic {{ .Values.slack.existingSecret }} \
+     --from-literal={{ .Values.slack.secretKey }}="$SLACK_WEBHOOK_URL" \
+     --namespace {{ .Release.Namespace }}
+
+2. Dashboard Deployment is installed as:
+
+   {{ include "cloud-service-status-monitor.fullname" . }}
+
+3. Port-forward the Service to open the UI:
+
+   kubectl port-forward svc/{{ include "cloud-service-status-monitor.fullname" . }} 8080:{{ .Values.dashboard.service.port }} -n {{ .Release.Namespace }}
+
+   Then open http://127.0.0.1:8080
+
+{{- if .Values.dashboard.ingress.enabled }}
+4. Ingress host: http://{{ .Values.dashboard.ingress.host }}
+{{- end }}
+
+Polling interval: {{ .Values.config.poll_interval_seconds }}s (in-process loop; no CronJob in dashboard mode).
+{{- else }}
+CronJob mode is enabled. Polling runs on schedule: {{ .Values.schedule }}
+{{- end }}

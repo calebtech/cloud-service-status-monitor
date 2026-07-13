@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "cloud-service-status-monitor.fullname" . }}-config
+  labels:
+    {{- include "cloud-service-status-monitor.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    poll_interval_seconds: {{ .Values.config.poll_interval_seconds }}
+    state_dir: {{ .Values.persistence.mountPath }}
+    dry_run: {{ .Values.dryRun }}
+    http_timeout_seconds: {{ .Values.config.http_timeout_seconds }}
+    services:
+{{- toYaml .Values.config.services | nindent 6 }}

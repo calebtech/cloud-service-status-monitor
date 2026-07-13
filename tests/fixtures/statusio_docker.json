@@ -1,0 +1,343 @@
+{
+  "result": {
+    "status_overall": {
+      "updated": "2026-07-13T10:30:08.014Z",
+      "status": "Operational",
+      "status_code": 100
+    },
+    "status": [
+      {
+        "id": "5342d1b837768a325c00000b",
+        "name": "Docker Hub Registry",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-06-04T13:43:08.580Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-06-04T13:43:08.580Z"
+      },
+      {
+        "id": "61e1a6108e1cce053fe15fa8",
+        "name": "Docker Authentication",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-04-20T17:34:31.468Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-04-20T17:34:31.468Z"
+      },
+      {
+        "id": "533c6539221ae15e3f000040",
+        "name": "Docker Hub Web Services",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-05-28T16:00:09.976Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-05-28T16:00:09.976Z"
+      },
+      {
+        "id": "636bddd6d7327366cd233ff0",
+        "name": "Docker Desktop",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "636bddc9fa68f4052d54ef27",
+            "name": "Client Machines",
+            "updated": "2026-02-10T15:13:37.351Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-02-10T15:13:37.351Z"
+      },
+      {
+        "id": "64513ac721e02f053d0ad4b0",
+        "name": "Docker Billing",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-01-05T22:56:51.532Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-01-05T22:56:51.532Z"
+      },
+      {
+        "id": "6a343b5a3a468f05c2280134",
+        "name": "Docker AI Governance",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "636bddc9fa68f4052d54ef27",
+            "name": "Client Machines",
+            "updated": "2026-06-30T19:03:24.956Z",
+            "status": "Operational",
+            "status_code": 100
+          },
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-06-18T18:39:22.311Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-06-30T19:03:24.956Z"
+      },
+      {
+        "id": "582c71aa40855b4d0e000240",
+        "name": "Docker Package Repositories",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-02-10T22:52:08.718Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-02-10T22:52:08.718Z"
+      },
+      {
+        "id": "5342bc9420974b775d000008",
+        "name": "Docker Hub Automated Builds",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-04-15T16:43:51.490Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-04-15T16:43:51.490Z"
+      },
+      {
+        "id": "61bb4045682d750536ef4488",
+        "name": "Docker Hub Security Scanning",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-17T17:09:27.926Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-17T17:09:27.926Z"
+      },
+      {
+        "id": "5347131d545b2f12640000bc",
+        "name": "Docker Docs",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-10-20T12:10:48.368Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-10-20T12:10:48.368Z"
+      },
+      {
+        "id": "55b15ea10a54eb8c71000ebf",
+        "name": "Docker Community Forums",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-10-20T12:10:52.329Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-10-20T12:10:52.329Z"
+      },
+      {
+        "id": "57f296dbe1401094660008e1",
+        "name": "Docker Support",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-10-20T12:10:59.150Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-10-20T12:10:59.150Z"
+      },
+      {
+        "id": "53a1c83e814a437c5a00075a",
+        "name": "Docker.com Website",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-23T21:49:15.966Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-23T21:49:15.966Z"
+      },
+      {
+        "id": "6513f7ae436354053158aa06",
+        "name": "Docker Scout",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-17T17:09:27.928Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-17T17:09:27.928Z"
+      },
+      {
+        "id": "659436deec9260052dcd9647",
+        "name": "Docker Build Cloud",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-17T17:09:27.945Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-17T17:09:27.945Z"
+      },
+      {
+        "id": "67dae0859f0db7157a226a19",
+        "name": "Testcontainers Cloud",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-03-23T10:27:58.129Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-03-23T10:27:58.129Z"
+      },
+      {
+        "id": "6849a7d9ff590105def62138",
+        "name": "Docker Cloud",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-17T17:09:27.923Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-17T17:09:27.923Z"
+      },
+      {
+        "id": "6883dcaeb8a4e804fad86442",
+        "name": "Docker Hardened Images",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2026-02-24T09:25:18.351Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-02-24T09:25:18.351Z"
+      },
+      {
+        "id": "691c5f959f865005ea5ce8da",
+        "name": "Docker Offload",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "64513de85fc76c053615177e",
+            "name": "Docker Web Services",
+            "updated": "2025-12-17T17:09:27.946Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2025-12-17T17:09:27.946Z"
+      },
+      {
+        "id": "6a208a949c2c470603e749fd",
+        "name": "Gordon AI Agent",
+        "status": "Operational",
+        "status_code": 100,
+        "containers": [
+          {
+            "id": "582c71876fb4f24615000489",
+            "name": "AWS",
+            "updated": "2026-06-03T20:12:04.474Z",
+            "status": "Operational",
+            "status_code": 100
+          }
+        ],
+        "updated": "2026-06-03T20:12:04.474Z"
+      }
+    ],
+    "incidents": [],
+    "maintenance": {
+      "active": [],
+      "upcoming": []
+    }
+  }
+}

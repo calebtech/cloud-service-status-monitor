@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cloud-service-status-monitor
+description: Poll vendor status pages and notify Slack on incidents
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

@@ -1,0 +1,52 @@
+# Cloud Service Status Monitor configuration
+#
+# Secrets (Slack webhook) should be supplied via SLACK_WEBHOOK_URL when possible.
+
+poll_interval_seconds: 60
+state_dir: ./data
+dry_run: false
+http_timeout_seconds: 20
+
+slack:
+  # Prefer SLACK_WEBHOOK_URL env var in production.
+  webhook_url: ""
+
+services:
+  - name: AWS
+    provider: aws_health
+    enabled: true
+    status_page_url: https://health.aws.amazon.com/health/status
+    events_url: https://health.aws.amazon.com/public/currentevents
+
+  - name: GitLab
+    provider: statusio
+    enabled: true
+    status_page_url: https://status.gitlab.com
+    page_id: "5b36dc6502d06804c08349f7"
+    api_base: https://api.status.io
+
+  - name: GitHub
+    provider: statuspage
+    enabled: true
+    status_page_url: https://www.githubstatus.com
+    base_url: https://www.githubstatus.com
+
+  - name: Docker Hub
+    provider: statusio
+    enabled: true
+    status_page_url: https://status.docker.com
+    page_id: "533c6539221ae15e3f000031"
+    api_base: https://api.status.io
+
+# Example extensions (disabled by default):
+#  - name: Cloudflare
+#    provider: statuspage
+#    enabled: false
+#    status_page_url: https://www.cloudflarestatus.com
+#    base_url: https://www.cloudflarestatus.com
+#
+#  - name: Atlassian
+#    provider: statuspage
+#    enabled: false
+#    status_page_url: https://status.atlassian.com
+#    base_url: https://status.atlassian.com

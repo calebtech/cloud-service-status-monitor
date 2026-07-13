@@ -1,0 +1,17 @@
+{{- if eq .Values.mode "dashboard" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cloud-service-status-monitor.fullname" . }}
+  labels:
+    {{- include "cloud-service-status-monitor.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.dashboard.service.type }}
+  selector:
+    {{- include "cloud-service-status-monitor.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: http
+      port: {{ .Values.dashboard.service.port }}
+      targetPort: http
+      protocol: TCP
+{{- end }}
